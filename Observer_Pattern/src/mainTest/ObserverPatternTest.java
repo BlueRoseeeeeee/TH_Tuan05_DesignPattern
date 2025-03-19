@@ -1,0 +1,25 @@
+package mainTest;
+
+import impl.MyTopic;
+import impl.MyTopicSubscriber;
+import interf.Observer;
+
+public class ObserverPatternTest {
+	public static void main(String[] args) {
+		MyTopic topic= new MyTopic();
+		
+		Observer obj1= new MyTopicSubscriber("Obj1");
+		Observer obj2= new MyTopicSubscriber("obj2");
+		Observer obj3= new MyTopicSubscriber("obj3");
+		
+		topic.register(obj1);
+		topic.register(obj2);
+		
+		obj1.setSubject(topic);
+		obj2.setSubject(topic);
+		
+		topic.postMessage("New Message");
+		
+	}
+
+}
